@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 
 let args = require('minimist')(process.argv.slice(2));
-const port = args['_'][0];
+let port = args.port;
 
 let homeContent = "";
 let projectContent = "";
@@ -34,11 +34,11 @@ http
     let url = request.url;
     response.writeHeader(200, { "Content-Type": "text/html" });
     switch (url) {
-      case "/project.html":
+      case "/project":
         response.write(projectContent);
         response.end();
         break;
-      case "/registration.html":
+      case "/registration":
         response.write(registrationContent );
         response.end();
         break;
@@ -49,5 +49,5 @@ http
     }
   })
   .listen(port, () => {
-    console.log(`listening server on ${port}`);
+    console.log(`listening server `);
   });
