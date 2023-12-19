@@ -24,13 +24,13 @@ const todoList = () => {
     const toDisplayableList = (list) => {
         return list.map(task => {
             if(task.completed === true ){
-                return (`[x] ${task.title}`)
+                return (`[x] ${task.title}\n`)
             }
             else if(task.completed === false && task.dueDate === today){
-                return (`[ ] ${task.title}`)
+                return (`[ ] ${task.title}\n`)
             }
             else {
-                return (`[ ] ${task.title} ${task.dueDate}`)
+                return (`[ ] ${task.title} ${task.dueDate}\n`)
             }
             
         }).join("")
@@ -70,17 +70,17 @@ const todoList = () => {
   var overdues = todos.overdue();
   var formattedOverdues = todos.toDisplayableList(overdues);
   console.log(formattedOverdues);
-  
+  console.log();
   
   console.log("Due Today");
   let itemsDueToday = todos.dueToday();
   let formattedItemsDueToday = todos.toDisplayableList(itemsDueToday);
   console.log(formattedItemsDueToday);
-  
+  console.log();
   
   console.log("Due Later");
   let itemsDueLater = todos.dueLater();
   let formattedItemsDueLater = todos.toDisplayableList(itemsDueLater);
   console.log(formattedItemsDueLater);
-  console.log("\n\n");
+  console.log();
   
