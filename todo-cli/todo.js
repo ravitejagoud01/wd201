@@ -24,13 +24,13 @@ const todoList = () => {
     const toDisplayableList = (list) => {
         return list.map(task => {
             if(task.completed === true ){
-                return (`[x] ${task.title}\n`)
+                return (`[x] ${task.title}`)
             }
             else if(task.completed === false && task.dueDate === today){
-                return (`[] ${task.title}\n`)
+                return (`[ ] ${task.title}`)
             }
             else {
-                return (`[] ${task.title} ${task.dueDate}\n`)
+                return (`[ ] ${task.title} ${task.dueDate}`)
             }
             
         }).join("")
